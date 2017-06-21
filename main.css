@@ -1,0 +1,80 @@
+
+@font-face {
+  font-family: Secret-Typewriter;
+  src:url(veteran_typewriter.ttf);
+}
+
+body {
+  font-family: Secret-Typewriter;
+}
+
+input {
+  font-family: Secret-Typewriter;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.letter {
+  display: inline;
+}
+
+.keyboard {
+  background-color: black;
+}
+
+.letters-row-1 {
+  display: flex;
+  justify-content: space-around;
+  width: 550px;
+  padding: 10px;
+  margin: auto;
+}
+
+.letters-row-2 {
+  display: flex;
+  justify-content: space-around;
+  width: 509px;
+  padding: 10px;
+  margin: auto;
+}
+
+.letters-row-3 {
+  display: flex;
+  justify-content: space-around;
+  width: 443px;
+  padding: 10px;
+  margin: auto;
+}
+
+.key {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #2f2d2d;
+  color: #c0c0c0;
+  border-radius: 50%;
+  border: 1px solid #c0c0c0;
+  text-align: center;
+  font-size: 25px;
+  line-height: 39px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+}
+
+.key:hover {
+  color: yellow;
+  border: 1px solid yellow;
+  font-size: 30px;
+}
+
+.key.pressed {
+  transform: scale(1.1);
+  color: yellow;
+  border: 1px solid yellow;
+}

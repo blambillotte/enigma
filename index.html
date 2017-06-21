@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Enigma</title>
+	<link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+	<nav>
+	</nav>
+
+  <h1>Enimga</h1>
+
+  <div class="lamp-letters">
+    <div class="lamp-letter">A</div>
+    <div class="lamp-letter">B</div>
+    <div class="lamp-letter">C</div>
+    <div class="lamp-letter">D</div>
+    <div class="lamp-letter">E</div>
+    <div class="lamp-letter">F</div>
+    <div class="lamp-letter">G</div>
+    <div class="lamp-letter">H</div>
+    <div class="lamp-letter">I</div>
+    <div class="lamp-letter">J</div>
+    <div class="lamp-letter">K</div>
+    <div class="lamp-letter">L</div>
+    <div class="lamp-letter">M</div>
+    <div class="lamp-letter">N</div>
+    <div class="lamp-letter">O</div>
+    <div class="lamp-letter">P</div>
+    <div class="lamp-letter">Q</div>
+    <div class="lamp-letter">R</div>
+    <div class="lamp-letter">S</div>
+    <div class="lamp-letter">T</div>
+    <div class="lamp-letter">U</div>
+    <div class="lamp-letter">V</div>
+    <div class="lamp-letter">W</div>
+    <div class="lamp-letter">X</div>
+    <div class="lamp-letter">Y</div>
+    <div class="lamp-letter">Z</div>
+  </div>
+
+<hr>
+<br>
+
+<div class="keyboard">
+  <div class="letters-row-1">
+    <div class="key" data-key="81">Q</div>
+    <div class="key" data-key="87">W</div>
+    <div class="key" data-key="69">E</div>
+    <div class="key" data-key="82">R</div>
+    <div class="key" data-key="84">T</div>
+    <div class="key" data-key="89">Y</div>
+    <div class="key" data-key="85">U</div>
+    <div class="key" data-key="73">I</div>
+    <div class="key" data-key="79">O</div>
+    <div class="key" data-key="80">P</div>
+  </div>
+
+  <div class="letters-row-2">
+    <div class="key" data-key="65">A</div>
+    <div class="key" data-key="83">S</div>
+    <div class="key" data-key="68">D</div>
+    <div class="key" data-key="70">F</div>
+    <div class="key" data-key="71">G</div>
+    <div class="key" data-key="72">H</div>
+    <div class="key" data-key="74">J</div>
+    <div class="key" data-key="75">K</div>
+    <div class="key" data-key="76">L</div>
+  </div>
+
+  <div class="letters-row-3">
+    <div class="key" data-key="90">Z</div>
+    <div class="key" data-key="88">X</div>
+    <div class="key" data-key="67">C</div>
+    <div class="key" data-key="86">V</div>
+    <div class="key" data-key="66">B</div>
+    <div class="key" data-key="78">N</div>
+    <div class="key" data-key="77">M</div>
+  </div>
+
+</div>
+
+<br>
+<input class="Input"></input>
+
+	<footer>
+  </footer>
+
+
+  <script>
+
+      function keyHighlight(a) {
+        var keyPress = document.querySelector(`.key[data-key="${a.keyCode}"]`);
+        var keyCode = a.keyCode;
+        if (keyCode >= 65 && keyCode <= 90) {
+
+        keyPress.classList.add('pressed'); //this adds the pressed class
+
+        function removeTransition(a) {
+          if(a.propertyName  !== 'transform') return; //stop if it is not a transition
+          this.classList.remove('pressed'); //removes the class of playing once the transion is done
+          }
+
+        var keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //listens to see when the CSS transition happens, then removes the transitioned state.
+        } else {
+        return;
+        }
+      }
+
+      window.addEventListener('keydown', keyHighlight); //when someone presses a key, then call keyHighlight
+
+
+    function Shift(e) {
+      var keyCode = e.keyCode;
+      if (keyCode >= 65 && keyCode <= 90) {
+
+      // e = e || window.event;
+      var plainText = e.keyCode - 65;
+      var shift = 4;
+      var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+      var cipherText = (plainText + shift) % 26;
+
+      console.log(alphabet[plainText] + ' -> ' + alphabet[cipherText]);
+      } else {
+      return;
+      }
+    }
+    window.addEventListener('keydown', Shift);
+
+  </script>
+
+
+</body>
+
+
+</html>
