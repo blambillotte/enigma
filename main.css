@@ -1,4 +1,4 @@
-
+/*------------Fonts---------------*/
 @font-face {
   font-family: Secret-Typewriter;
   src:url(veteran_typewriter.ttf);
@@ -12,6 +12,8 @@ input {
   font-family: Secret-Typewriter;
 }
 
+
+/*------------Header---------------*/
 h1 {
   text-align: center;
   font-size: 50px;
@@ -20,6 +22,8 @@ h1 {
 .lamp-letter {
   display: inline;
 }
+
+/*------------Keyboard---------------*/
 
 .keyboard {
   background-color: black;
