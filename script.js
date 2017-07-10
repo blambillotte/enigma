@@ -13,7 +13,10 @@ function keyHighlight(a) {
       }
 
       var keys = document.querySelectorAll('.key');
-      keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //listens to see when the CSS transition happens, then removes the transitioned state.
+      keys.forEach(function(key){
+        key.addEventListener('transitionend', removeTransition);
+      }); //listens to see when the CSS transition happens, then removes the transitioned state.
+
       } else {
         return;
       }
@@ -27,30 +30,36 @@ function Shift(e) {
     if (keyCode >= 65 && keyCode <= 90) {
 
     var plainText = (e.keyCode - 65);
-    var shift = document.getElementById("Shift").value;
+    var shift = Number(document.getElementById("Shift").value);
     var shiftInput = document.getElementById("Shift");
 
     var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
 
-    var cipherText = (plainText + Number(shift)) % 26;
+    var cipherText = (plainText + shift) % 26;
 
     shiftInput.value ++;
     writeData()
     // keyHighlight()
 
     //console.log(shiftInput.value);
-    console.log(alphabet[plainText] + ' -> ' + alphabet[cipherText]);
-    console.log('shift = ' + shift + ' plainText = ' + plainText + ' cipherText = '+ cipherText);
+    console.log(alphabet[plainText] + ' → ' + alphabet[cipherText]);
 
     } else {
     return;
     }
 
-    function writeData(){
-      document.getElementById("output").insertAdjacentHTML("beforeend", alphabet[cipherText]);
-      document.getElementById("outputText").insertAdjacentHTML("beforeend", alphabet[plainText]);
+      function writeData(){
+        document.getElementById("outputText").insertAdjacentHTML("beforeend", alphabet[cipherText]);
+        document.getElementById("inputText").insertAdjacentHTML("beforeend", alphabet[plainText]);
+      }
+
+    var DEBUG = {
+      "Shift": shift,
+      "Plaintext": plainText,
+      "cipherText": cipherText,
     }
+    console.log(DEBUG);
 }
 
 window.addEventListener('keydown', Shift);
