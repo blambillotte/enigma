@@ -40,7 +40,7 @@ function Shift(e) {
 
     shiftInput.value ++;
     writeData()
-    // keyHighlight()
+
 
     //console.log(shiftInput.value);
     console.log(alphabet[plainText] + ' → ' + alphabet[cipherText]);
@@ -62,4 +62,15 @@ function Shift(e) {
     console.log(DEBUG);
 }
 
-window.addEventListener('keydown', Shift);
+//window.addEventListener('keydown', Shift);
+
+
+function alphaCode(event) {
+  var keyCode = event.keyCode
+  if (keyCode >= 65 && keyCode <= 90) {
+    console.log(keyCode);
+    shift(keyCode);
+  }
+}
+
+window.addEventListener('keydown', alphaCode);
