@@ -25,51 +25,44 @@ function keyHighlight(a) {
  window.addEventListener('keydown', keyHighlight); //when someone presses a key, then call keyHighlight
 
 
-function Shift(e) {
-  var keyCode = e.keyCode;
-    if (keyCode >= 65 && keyCode <= 90) {
+function Shift(plainText) {
 
-    var plainText = (e.keyCode - 65);
-    var shift = Number(document.getElementById("Shift").value);
-    var shiftInput = document.getElementById("Shift");
+  var shift = Number(document.getElementById("Shift").value);
+  var shiftInput = document.getElementById("Shift");
 
-    var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+  var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+  var cipherText = (plainText + shift) % 26;
+
+  shiftInput.value ++;
+  writeData()
+
+  //console.log(shiftInput.value);
+  console.log(alphabet[plainText] + ' → ' + alphabet[cipherText]);
 
 
-    var cipherText = (plainText + shift) % 26;
-
-    shiftInput.value ++;
-    writeData()
-
-
-    //console.log(shiftInput.value);
-    console.log(alphabet[plainText] + ' → ' + alphabet[cipherText]);
-
-    } else {
-    return;
+    function writeData(){
+      document.getElementById("outputText").insertAdjacentHTML("beforeend", alphabet[cipherText]);
+      document.getElementById("inputText").insertAdjacentHTML("beforeend", alphabet[plainText]);
     }
 
-      function writeData(){
-        document.getElementById("outputText").insertAdjacentHTML("beforeend", alphabet[cipherText]);
-        document.getElementById("inputText").insertAdjacentHTML("beforeend", alphabet[plainText]);
-      }
-
-    var DEBUG = {
-      "Shift": shift,
-      "Plaintext": plainText,
-      "cipherText": cipherText,
-    }
-    console.log(DEBUG);
+  var DEBUG = {
+    "Shift": shift,
+    "Plaintext": plainText,
+    "cipherText": cipherText,
+  }
+  console.log(DEBUG);
 }
-
-//window.addEventListener('keydown', Shift);
 
 
 function alphaCode(event) {
   var keyCode = event.keyCode
+
   if (keyCode >= 65 && keyCode <= 90) {
-    console.log(keyCode);
-    shift(keyCode);
+    var plainText = keyCode - 65;
+    Shift(plainText);
+  } else {
+    return;
   }
 }
 
