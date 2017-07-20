@@ -6,6 +6,7 @@
 
 body {
   font-family: Secret-Typewriter;
+  background-image: url(eggshell.jpg);
 }
 
 input {
@@ -26,7 +27,11 @@ h1 {
 /*------------Keyboard---------------*/
 
 .keyboard {
-  background-color: black;
+  background-color: #313030;
+  border-radius: 8px;
+  max-width: 610px;
+  margin: 0 auto;
+  padding: 7px;
 }
 
 .letters-row-1 {
@@ -86,4 +91,29 @@ h1 {
 .text-containers {
   overflow-wrap: break-word;
   letter-spacing: 3px;
+}
+
+
+.input-container {
+  border: 1px solid #929191;
+  padding: 7px;
+  border-radius: 7px;
+  background-color: rgba(86, 222, 32, 0.13);
+  margin: 6px auto 0;
+  max-width: 610px;
+  min-height: 20px;
+}
+
+.output-container {
+  border: 1px solid #929191;
+  padding: 7px;
+  border-radius: 7px;
+  background-color: rgba(222, 45, 0, 0.13);
+  margin: 6px auto 0;
+  max-width: 610px;
+  min-height: 20px;
+}
+
+.lable-text {
+  margin-left: 10px;
 }
