@@ -14,7 +14,7 @@ input {
 }
 
 
-/*------------Header---------------*/
+/*------------Header and Main Container---------------*/
 h1 {
   text-align: center;
   font-size: 50px;
@@ -22,6 +22,11 @@ h1 {
 
 .lamp-letter {
   display: inline;
+}
+
+.body {
+  max-width: 730px;
+  margin: 0 auto;
 }
 
 /*------------Keyboard---------------*/
@@ -32,6 +37,7 @@ h1 {
   max-width: 610px;
   margin: 0 auto;
   padding: 7px;
+  box-shadow: 0px 1px 16px #313030;
 }
 
 .letters-row-1 {
@@ -76,13 +82,7 @@ h1 {
 
 }
 
-.key:hover {
-  color: yellow;
-  border: 1px solid yellow;
-  font-size: 30px;
-}
-
-.key.pressed {
+.key.pressed, .key:hover {
   transform: scale(1.1);
   color: yellow;
   border: 1px solid yellow;
@@ -117,3 +117,16 @@ h1 {
 .lable-text {
   margin-left: 10px;
 }
+
+
+/*------------Gear---------------*/
+
+.gear {
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+}
+
+.gear > img {
+    width: 100%;
+  }

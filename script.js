@@ -1,6 +1,8 @@
 (function() {
   var ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   var $shift = document.getElementById("Shift");
+  var $gear = document.getElementById('Gear');
+  var $rotateDegrees = 0;
 
   function keyHighlight(a) {
     var keyPress = document.querySelector(`.key[data-key="${a.keyCode}"]`);
@@ -42,6 +44,7 @@
 
     incrementShiftIndex();
     displayLetters(cipherIndex, alphaIndex);
+    rotateGear();
 
     //console.log($shift.value);
     console.log(ALPHABET[alphaIndex] + ' → ' + ALPHABET[cipherIndex]);
@@ -62,6 +65,16 @@
     var alphaIndex = getAlphaIndex(event.keyCode);
     if (alphaIndex != null) return shift(alphaIndex);
   }
+
+
+
+  function rotateGear() {
+    $rotateDegrees += 10;
+    console.log($rotateDegrees);
+    $gear.style.transform = `rotate(${$rotateDegrees}deg)`;
+
+  }
+
 
   window.addEventListener('keydown', handleKeydown);
 })();
