@@ -2,7 +2,11 @@
   var ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   var $shift = document.getElementById("Shift");
   var $gear = document.getElementById('Gear');
+  var $shiftValueDiv = document.getElementById('shiftValue');
   var $rotateDegrees = 0;
+  var $setShiftInput = document.getElementById('setShiftInput');
+  var $saveShiftInput = document.getElementById('saveShiftInput');
+  var $shiftInputDiv = document.getElementById('shiftInput');
 
   function keyHighlight(a) {
     var keyPress = document.querySelector(`.key[data-key="${a.keyCode}"]`);
@@ -44,7 +48,7 @@
 
     incrementShiftIndex();
     displayLetters(cipherIndex, alphaIndex);
-    rotateGear();
+    rotateGear(shiftIndex);
 
     //console.log($shift.value);
     console.log(ALPHABET[alphaIndex] + ' → ' + ALPHABET[cipherIndex]);
@@ -68,13 +72,32 @@
 
 
 
-  function rotateGear() {
+  function rotateGear(shiftIndex) {
     $rotateDegrees += 10;
     console.log($rotateDegrees);
     $gear.style.transform = `rotate(${$rotateDegrees}deg)`;
-
+    $shiftValueDiv.innerHTML = ALPHABET[shiftIndex + 1]; // TODO: use input variable instead.
   }
 
 
+  function showSetInputValue() {
+    //show the dropdown
+    console.log("show was clicked");
+    $shiftInputDiv.style.display = "inline-block";
+    $setShiftInput.style.display = "none";
+    $saveShiftInput.style.display = "inline-block";
+
+  }
+
+  function saveSetInputVale(){
+    //save the new input value
+    $shiftInputDiv.style.display = "none";
+    $setShiftInput.style.display = "inline-block";
+    $saveShiftInput.style.display = "none";
+    // TODO: save this value in a variable;
+  }
+
+  $setShiftInput.addEventListener('click', showSetInputValue);
+  $saveShiftInput.addEventListener('click', saveSetInputVale);
   window.addEventListener('keydown', handleKeydown);
 })();
