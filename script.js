@@ -4,6 +4,7 @@
   var $gear = document.getElementById('Gear');
   var $shiftValueDiv = document.getElementById('shiftValue');
   var $rotateDegrees = 0;
+
   var $setShiftInput = document.getElementById('setShiftInput');
   var $saveShiftInput = document.getElementById('saveShiftInput');
   var $shiftInputDiv = document.getElementById('shiftInput');
@@ -31,6 +32,7 @@
   }
 
    window.addEventListener('keydown', keyHighlight); //when someone presses a key, then call keyHighlight
+
 
   function incrementShiftIndex() {
     $shift.value ++;

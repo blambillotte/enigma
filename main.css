@@ -164,3 +164,5 @@ span#shiftValue {
   display: none;
   margin-left: 12px;
 }
+
+/* TODO: Add a class to toggle display instead of using JS to inline the CSS */
